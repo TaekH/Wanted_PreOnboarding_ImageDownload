@@ -14,6 +14,7 @@
 		2AF92E0729B0C2580073A88E /* Wanted_PreOnboarding_ImageDownload.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2AF92E0529B0C2580073A88E /* Wanted_PreOnboarding_ImageDownload.xcdatamodeld */; };
 		2AF92E0929B0C25A0073A88E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AF92E0829B0C25A0073A88E /* Assets.xcassets */; };
 		2AF92E0C29B0C25A0073A88E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AF92E0A29B0C25A0073A88E /* LaunchScreen.storyboard */; };
+		2AF92E1D29B0C9330073A88E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF92E1C29B0C9330073A88E /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		2AF92E0829B0C25A0073A88E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2AF92E0B29B0C25A0073A88E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2AF92E0D29B0C25A0073A88E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AF92E1C29B0C9330073A88E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +60,49 @@
 		2AF92DFB29B0C2580073A88E /* Wanted_PreOnboarding_ImageDownload */ = {
 			isa = PBXGroup;
 			children = (
-				2AF92DFC29B0C2580073A88E /* AppDelegate.swift */,
-				2AF92DFE29B0C2580073A88E /* SceneDelegate.swift */,
-				2AF92E0029B0C2580073A88E /* ViewController.swift */,
-				2AF92E0229B0C2580073A88E /* Main.storyboard */,
-				2AF92E0829B0C25A0073A88E /* Assets.xcassets */,
-				2AF92E0A29B0C25A0073A88E /* LaunchScreen.storyboard */,
+				2AF92E1929B0C68C0073A88E /* Global */,
+				2AF92E1829B0C6660073A88E /* Services */,
+				2AF92E1729B0C6600073A88E /* Views */,
+				2AF92E1429B0C5860073A88E /* Application */,
 				2AF92E0D29B0C25A0073A88E /* Info.plist */,
 				2AF92E0529B0C2580073A88E /* Wanted_PreOnboarding_ImageDownload.xcdatamodeld */,
 			);
 			path = Wanted_PreOnboarding_ImageDownload;
+			sourceTree = "<group>";
+		};
+		2AF92E1429B0C5860073A88E /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				2AF92DFC29B0C2580073A88E /* AppDelegate.swift */,
+				2AF92DFE29B0C2580073A88E /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		2AF92E1729B0C6600073A88E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2AF92E0229B0C2580073A88E /* Main.storyboard */,
+				2AF92E0029B0C2580073A88E /* ViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2AF92E1829B0C6660073A88E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2AF92E1C29B0C9330073A88E /* NetworkService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		2AF92E1929B0C68C0073A88E /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				2AF92E0829B0C25A0073A88E /* Assets.xcassets */,
+				2AF92E0A29B0C25A0073A88E /* LaunchScreen.storyboard */,
+			);
+			path = Global;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AF92E1D29B0C9330073A88E /* NetworkService.swift in Sources */,
 				2AF92E0129B0C2580073A88E /* ViewController.swift in Sources */,
 				2AF92E0729B0C2580073A88E /* Wanted_PreOnboarding_ImageDownload.xcdatamodeld in Sources */,
 				2AF92DFD29B0C2580073A88E /* AppDelegate.swift in Sources */,
