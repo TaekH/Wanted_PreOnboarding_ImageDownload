@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A7EFCC629B1EC9F0045339C /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7EFCC529B1EC9F0045339C /* ImageCollectionViewCell.swift */; };
 		2AF92DFD29B0C2580073A88E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF92DFC29B0C2580073A88E /* AppDelegate.swift */; };
 		2AF92DFF29B0C2580073A88E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF92DFE29B0C2580073A88E /* SceneDelegate.swift */; };
 		2AF92E0129B0C2580073A88E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF92E0029B0C2580073A88E /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A7EFCC529B1EC9F0045339C /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		2AF92DF929B0C2580073A88E /* Wanted_PreOnboarding_ImageDownload.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wanted_PreOnboarding_ImageDownload.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AF92DFC29B0C2580073A88E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AF92DFE29B0C2580073A88E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A7EFCC429B1E7BA0045339C /* ViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				2A7EFCC529B1EC9F0045339C /* ImageCollectionViewCell.swift */,
+			);
+			path = ViewComponents;
+			sourceTree = "<group>";
+		};
 		2AF92DF029B0C2580073A88E = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +92,7 @@
 		2AF92E1729B0C6600073A88E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2A7EFCC429B1E7BA0045339C /* ViewComponents */,
 				2AF92E0229B0C2580073A88E /* Main.storyboard */,
 				2AF92E0029B0C2580073A88E /* ViewController.swift */,
 			);
@@ -176,6 +187,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A7EFCC629B1EC9F0045339C /* ImageCollectionViewCell.swift in Sources */,
 				2AF92E1D29B0C9330073A88E /* NetworkService.swift in Sources */,
 				2AF92E0129B0C2580073A88E /* ViewController.swift in Sources */,
 				2AF92E0729B0C2580073A88E /* Wanted_PreOnboarding_ImageDownload.xcdatamodeld in Sources */,
