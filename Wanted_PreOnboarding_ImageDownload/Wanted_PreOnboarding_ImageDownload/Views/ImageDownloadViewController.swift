@@ -13,12 +13,12 @@ final class ImageDownloadViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 20
-        layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 20 * 2, height: 100)
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 20 * 2, height: 80)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .white
         collectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: ImageCollectionViewCell.identifier)
-        collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 20)
+        collectionView.contentInset = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
@@ -31,13 +31,14 @@ final class ImageDownloadViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .white
         configure()
         setLayout()
         // Do any additional setup after loading the view.
     }
 }
 
-extension ImageDownloadViewController: UICollectionViewDataSource {
+extension ImageDownloadViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imageSet.count
     }
@@ -56,10 +57,10 @@ private extension ImageDownloadViewController {
         self.view.addSubview(imagesCollectionView)
         NSLayoutConstraint.activate([
             imagesCollectionView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            imagesCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
-            imagesCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            imagesCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
-            imagesCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 20),
+            imagesCollectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            imagesCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            imagesCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            imagesCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
     }
     

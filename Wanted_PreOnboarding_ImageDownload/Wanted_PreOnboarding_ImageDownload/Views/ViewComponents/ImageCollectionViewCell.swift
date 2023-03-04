@@ -25,7 +25,8 @@ final class ImageCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super .init(frame: frame)
-        setLayout()
+        setLoadButtonLayout()
+        setImageViewLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -35,24 +36,28 @@ final class ImageCollectionViewCell: UICollectionViewCell {
 }
 
 private extension ImageCollectionViewCell {
-    func setLayout() {
+    func setImageViewLayout() {
         self.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             imageView.widthAnchor.constraint(equalToConstant: 100),
-            imageView.heightAnchor.constraint(equalToConstant: 80),
+            imageView.heightAnchor.constraint(equalToConstant: 180),
+            imageView.topAnchor.constraint(equalTo: self.topAnchor),
+            imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
         ])
-        
+    }
+    
+    func setLoadButtonLayout() {
         self.addSubview(loadButton)
         loadButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             loadButton.topAnchor.constraint(equalTo: contentView.topAnchor),
             loadButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            loadButton.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 120),
+            loadButton.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            loadButton.heightAnchor.constraint(equalToConstant: 20),
             loadButton.widthAnchor.constraint(equalToConstant: 70),
+            
         ])
     }
 }
