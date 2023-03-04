@@ -38,20 +38,29 @@ final class ImageDownloadViewController: UIViewController {
         return button
     }()
     
-    func downloadImage(_ index: Int) {
+    func loadImage(_ index: Int) {
         NetworkService().getImage() { data, response, error in
             guard let data = data, error == nil else { return }
-            DispatchQueue.main.async() { [weak self] in
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) { [weak self] in
                 self?.imageSet[index] = UIImage(data: data)
             }
         }
     }
     
+    func loadAllImages() {
+        for index in imageSet.indices {
+                    loadImage(index)
+                }
+    }
+    
     @objc func loadButtonPressed(_ sender: UIButton) {
-        if imageSet[sender.tag] == UIImage(systemName: "photo") {
-            downloadImage(sender.tag)
-        }
-        else { imageSet[sender.tag] =  UIImage(systemName: "photo")  }
+        self.imageSet[sender.tag] = UIImage(systemName: "photo")
+        loadImage(sender.tag)
+    }
+    
+    @objc func loadAllButtonPressed(_ sender: UIButton) {
+        imageSet = Array(repeating: UIImage(systemName: "photo"), count: 5)
+        loadAllImages()
     }
     
     override func viewDidLoad() {
@@ -98,6 +107,7 @@ private extension ImageDownloadViewController {
     }
     
     func configure() {
+        loadAllButton.addTarget(self, action: #selector(loadAllButtonPressed), for: .touchUpInside)
         imagesCollectionView.dataSource = self
         imagesCollectionView.delegate = self
     }
