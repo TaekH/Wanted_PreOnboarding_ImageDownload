@@ -48,7 +48,10 @@ final class ImageDownloadViewController: UIViewController {
     }
     
     @objc func loadButtonPressed(_ sender: UIButton) {
-        downloadImage(sender.tag)
+        if imageSet[sender.tag] == UIImage(systemName: "photo") {
+            downloadImage(sender.tag)
+        }
+        else { imageSet[sender.tag] =  UIImage(systemName: "photo")  }
     }
     
     override func viewDidLoad() {
