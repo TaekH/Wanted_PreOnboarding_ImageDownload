@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 final class ImageCollectionViewCell: UICollectionViewCell {
     static var identifier: String {
@@ -19,7 +20,7 @@ final class ImageCollectionViewCell: UICollectionViewCell {
         button.backgroundColor = .systemBlue
         button.setTitle("Load", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 10
+        button.layer.cornerRadius = 8
         return button
     }()
     
@@ -38,26 +39,20 @@ final class ImageCollectionViewCell: UICollectionViewCell {
 private extension ImageCollectionViewCell {
     func setImageViewLayout() {
         self.addSubview(imageView)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            imageView.widthAnchor.constraint(equalToConstant: 100),
-            imageView.heightAnchor.constraint(equalToConstant: 180),
-            imageView.topAnchor.constraint(equalTo: self.topAnchor),
-            imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-        ])
+        imageView.snp.makeConstraints { make in
+            make.leading.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.height.equalTo(80)
+            make.width.equalTo(100)
+        }
     }
     
     func setLoadButtonLayout() {
         self.addSubview(loadButton)
-        loadButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            loadButton.topAnchor.constraint(equalTo: contentView.topAnchor),
-            loadButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            loadButton.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            loadButton.heightAnchor.constraint(equalToConstant: 20),
-            loadButton.widthAnchor.constraint(equalToConstant: 70),
-            
-        ])
+        loadButton.snp.makeConstraints { make in
+            make.trailing.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.width.equalTo(80)
+        }
     }
 }

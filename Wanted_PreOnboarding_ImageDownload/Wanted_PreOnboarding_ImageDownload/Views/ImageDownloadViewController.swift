@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 final class ImageDownloadViewController: UIViewController {
     
@@ -19,7 +20,6 @@ final class ImageDownloadViewController: UIViewController {
         collectionView.backgroundColor = .white
         collectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: ImageCollectionViewCell.identifier)
         collectionView.contentInset = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
     
@@ -55,13 +55,9 @@ extension ImageDownloadViewController: UICollectionViewDataSource, UICollectionV
 private extension ImageDownloadViewController {
     func setLayout() {
         self.view.addSubview(imagesCollectionView)
-        NSLayoutConstraint.activate([
-            imagesCollectionView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            imagesCollectionView.topAnchor.constraint(equalTo: view.topAnchor),
-            imagesCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            imagesCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            imagesCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-        ])
+        imagesCollectionView.snp.makeConstraints { make in
+            make.top.bottom.left.right.equalToSuperview()
+        }
     }
     
     func configure() {
