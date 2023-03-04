@@ -8,16 +8,8 @@
 import Foundation
 
 final class NetworkService {
-    func getImage(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+    func getImage(completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        guard let url = URL(string: "https://source.unsplash.com/random/\(index)") else { return }
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
-    }
-    
-    func downloadImage(from url: URL) {
-        getImage(from: url) { data, response, error in
-            guard let data = data, error == nil else { return }
-            DispatchQueue.main.async() { [weak self] in
-                //TODO: 이미지 지정 들어갈 부분
-            }
-        }
     }
 }
