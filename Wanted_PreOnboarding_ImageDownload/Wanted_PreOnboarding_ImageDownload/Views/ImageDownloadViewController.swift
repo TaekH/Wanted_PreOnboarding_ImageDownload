@@ -10,7 +10,7 @@ import SnapKit
 
 final class ImageDownloadViewController: UIViewController {
     
-    private var imagesCollectionView: UICollectionView = {
+    private var imageSetCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 20
@@ -25,7 +25,7 @@ final class ImageDownloadViewController: UIViewController {
     
     lazy var imageSet: [UIImage?] = Array(repeating: UIImage(systemName: "photo"), count: 5) {
         didSet {
-            imagesCollectionView.reloadData()
+            imageSetCollectionView.reloadData()
         }
     }
     
@@ -92,23 +92,23 @@ extension ImageDownloadViewController: UICollectionViewDataSource, UICollectionV
 
 private extension ImageDownloadViewController {
     func setLayout() {
-        self.view.addSubview(imagesCollectionView)
-        imagesCollectionView.snp.makeConstraints { make in
+        self.view.addSubview(imageSetCollectionView)
+        imageSetCollectionView.snp.makeConstraints { make in
             make.top.left.right.equalToSuperview()
-            make.bottom.equalToSuperview().offset(-200)
+            make.height.equalToSuperview().offset(-200)
         }
         
         self.view.addSubview(loadAllButton)
         loadAllButton.snp.makeConstraints { make in
             make.width.equalTo(UIScreen.main.bounds.width - 20 * 2)
             make.centerX.equalToSuperview()
-            make.bottom.equalTo(imagesCollectionView.snp.bottom).offset(30)
+            make.bottom.equalTo(imageSetCollectionView.snp.bottom).offset(30)
         }
     }
     
     func configure() {
         loadAllButton.addTarget(self, action: #selector(loadAllButtonPressed), for: .touchUpInside)
-        imagesCollectionView.dataSource = self
-        imagesCollectionView.delegate = self
+        imageSetCollectionView.dataSource = self
+        imageSetCollectionView.delegate = self
     }
 }

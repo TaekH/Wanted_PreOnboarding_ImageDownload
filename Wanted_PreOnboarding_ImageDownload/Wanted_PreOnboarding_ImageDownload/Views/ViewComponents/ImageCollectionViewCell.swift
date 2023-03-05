@@ -73,6 +73,7 @@ private extension ImageCollectionViewCell {
             make.trailing.equalToSuperview()
             make.centerY.equalToSuperview()
             make.width.equalTo(80)
+            make.height.equalTo(40)
         }
     }
 }

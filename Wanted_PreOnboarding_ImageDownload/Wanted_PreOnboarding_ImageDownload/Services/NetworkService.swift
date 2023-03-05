@@ -9,7 +9,7 @@ import Foundation
 
 final class NetworkService {
     func getImage(completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        var index = Int.random(in: 0...10)
+        let index = Int.random(in: 0...10)
         guard let url = URL(string: "https://source.unsplash.com/random/\(index))") else { return }
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
