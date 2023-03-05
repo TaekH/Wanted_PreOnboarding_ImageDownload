@@ -24,10 +24,20 @@ final class ImageCollectionViewCell: UICollectionViewCell {
         return button
     }()
     
+    let progressView: UIProgressView = {
+        let progressView = UIProgressView()
+        progressView.backgroundColor = .systemGray
+        progressView.progressTintColor = .systemBlue
+        progressView.layer.cornerRadius = 1
+        progressView.progress = 0.5
+        return progressView
+    }()
+    
     override init(frame: CGRect) {
         super .init(frame: frame)
         setLoadButtonLayout()
         setImageViewLayout()
+        setProgressViewLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -44,6 +54,16 @@ private extension ImageCollectionViewCell {
             make.centerY.equalToSuperview()
             make.height.equalTo(80)
             make.width.equalTo(100)
+        }
+    }
+    
+    func setProgressViewLayout() {
+        self.addSubview(progressView)
+        progressView.snp.makeConstraints { make in
+            make.trailing.equalTo(loadButton.snp.leading)
+            make.leading.equalTo(imageView.snp.trailing).offset(20)
+            make.centerY.equalToSuperview()
+            
         }
     }
     

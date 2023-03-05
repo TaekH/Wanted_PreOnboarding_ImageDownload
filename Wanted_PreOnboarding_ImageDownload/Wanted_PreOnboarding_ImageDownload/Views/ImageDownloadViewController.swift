@@ -23,7 +23,7 @@ final class ImageDownloadViewController: UIViewController {
         return collectionView
     }()
     
-    var imageSet: [UIImage?] = Array(repeating: UIImage(systemName: "photo"), count: 5) {
+    lazy var imageSet: [UIImage?] = Array(repeating: UIImage(systemName: "photo"), count: 5) {
         didSet {
             imagesCollectionView.reloadData()
         }
